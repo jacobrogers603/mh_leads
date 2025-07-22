@@ -1,0 +1,9 @@
+name = "mh_leads"
+version = "0.1.0"
+
+[dependencies]
+wisp = "~> 1.8"
+gleam_http = "~> 4.1"
+
+[dev-dependencies]
+gleeunit = ">= 1.0.0 and < 2.0.0"
