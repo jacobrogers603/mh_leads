@@ -1,0 +1,3 @@
+[submodule "frontend/hugo-universal-theme"]
+	path = frontend/hugo-universal-theme
+	url = https://github.com/devcows/hugo-universal-theme
