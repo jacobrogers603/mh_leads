@@ -3,8 +3,11 @@ languageCode = "en-us"
 title = "Sell Your Mobile Home Fast – Orlando"
 theme = "universal"
 defaultContentLanguage = "en"
-paginate = 10
 enableRobotsTXT = true
+
+[pagination]
+pagerSize = 10
+
 
 [params]
 author = "Your Name"
