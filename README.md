@@ -2,25 +2,11 @@
 
 A lead capturing website for mobile home seller leads
 
-[![Package Version](https://img.shields.io/hexpm/v/mh_leads)](https://hex.pm/packages/mh_leads)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/mh_leads/)
+- Hugo frontend for SEO optimization and easy content updates via md
+- Python flask backend to capture the entered leads with an admin panel
+- sqlLite database to hold all the leads
 
-```sh
-gleam add mh_leads@1
-```
-```gleam
-import mh_leads
+Multiple pages with specific areas in url to boost seo
+many new pieces of content posted weekly to max organic seo
 
-pub fn main() -> Nil {
-  // TODO: An example of the project in use
-}
-```
-
-Further documentation can be found at <https://hexdocs.pm/mh_leads>.
-
-## Development
-
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-```
+goal: dominate the central FL MH online market for lead collection
