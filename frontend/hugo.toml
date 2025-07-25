@@ -1,0 +1,58 @@
+baseURL = "http://localhost/"
+languageCode = "en-us"
+title = "Sell Your Mobile Home Fast – Orlando"
+theme = "universal"
+defaultContentLanguage = "en"
+paginate = 10
+enableRobotsTXT = true
+
+[params]
+author = "Your Name"
+description = "We buy mobile homes fast in Orlando, FL."
+logo = "img/logo.png"
+favicon = "img/favicon.ico"
+contact_url = "/contact"
+
+# Optional: customize hero
+[params.hero]
+enable = true
+title = "Sell Your Mobile Home Fast"
+subtitle = "Orlando Cash Buyers – No Fees, No Repairs, No Agents"
+button_text = "Get Your Offer"
+button_url = "/contact"
+
+# Social links
+[[params.social]]
+icon = "fa-facebook"
+link = "https://facebook.com/yourpage"
+
+[[params.social]]
+icon = "fa-envelope"
+link = "mailto:you@example.com"
+
+# Menu setup
+[menu]
+
+  [[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 1
+
+  [[menu.main]]
+  identifier = "locations"
+  name = "Locations"
+  url = "/locations/"
+  weight = 2
+
+  [[menu.main]]
+  identifier = "blog"
+  name = "Blog"
+  url = "/blog/"
+  weight = 3
+
+  [[menu.main]]
+  identifier = "contact"
+  name = "Contact"
+  url = "/contact/"
+  weight = 4
