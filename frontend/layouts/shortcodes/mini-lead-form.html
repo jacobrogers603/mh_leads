@@ -1,67 +1,150 @@
-<div
-  style="
-    background: #004b87;
-    padding: 1.5rem;
-    border-radius: 8px;
-    color: #fff;
-    max-width: 400px;
-  ">
-  <h3 style="margin-top: 0">Get Your Fair Cash Offer: Start Below!</h3>
-  <hr style="border: 1px solid #ccc; margin: 1rem 0" />
-  <form id="mini-lead-form" onsubmit="return redirectToFullForm(event)">
-    <label>
-      Property Address*
-      <br />
-      <input
-        type="text"
-        name="address"
-        required
-        style="width: 100%; margin-bottom: 1rem; padding: 0.5rem" />
-    </label>
-    <br />
-
-    <div style="display: flex; gap: 1rem; margin-bottom: 1rem">
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Phone"
-        style="flex: 1; padding: 0.5rem" />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email*"
-        required
-        style="flex: 1; padding: 0.5rem" />
-    </div>
-
-    <button
-      type="submit"
-      style="
-        background: #ff9900;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell Your Mobile Home in Central Florida</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .form-container {
+        background: #0077be;
+        padding: 2rem;
+        border-radius: 8px;
+        color: #ffffff;
+        max-width: 350px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .form-container h3 {
+        margin-top: 0;
+        font-size: 1.7rem;
+        text-align: center;
+        color: #ffd700;
+        font-weight: bold;
+        word-break: break-word;
+      }
+      .form-container hr {
+        border: 1px solid #ffffff;
+        margin: 1.5rem 0;
+        opacity: 0.5;
+      }
+      .form-container form {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-container label {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: bold; /* Make labels bold */
+      }
+      .form-container input {
+        width: 100%;
+        padding: 0.85rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        background: #f9f9f9;
+        color: #333;
+      }
+      .form-container .field-group {
+        margin-bottom: 1.2rem; /* Consistent spacing for all field groups */
+      }
+      .form-container .input-row {
+        display: flex;
+        gap: 1.2rem;
+        margin-bottom: 1.2rem; /* Consistent with other fields */
+      }
+      .form-container .input-row .field-group {
+        flex: 1;
+        margin-bottom: 0; /* No extra bottom margin in row */
+      }
+      .form-container button {
+        background: #ff4500;
         color: white;
         font-weight: bold;
-        padding: 0.75rem 1rem;
+        padding: 1.1rem;
         border: none;
         width: 100%;
         border-radius: 4px;
-        font-size: 1rem;
-      ">
-      Get My Cash Offer!
-    </button>
-  </form>
-</div>
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .form-container button:hover {
+        background: #cc3700;
+      }
+      .required-asterisk {
+        color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h3>
+        Get Your Fair Value for Your Central Florida Mobile Home: Start Here!
+      </h3>
+      <hr />
+      <form id="mini-lead-form" onsubmit="return redirectToFullForm(event)">
+        <div class="field-group">
+          <label>
+            Your Central Florida Property Address
+            <span class="required-asterisk">*</span>
+          </label>
+          <input
+            type="text"
+            name="address"
+            required
+            placeholder="Enter your Central Florida address"
+            aria-label="Central Florida Property Address" />
+        </div>
 
-<script>
-  function redirectToFullForm(event) {
-    event.preventDefault();
-    const form = event.target;
-    const address = encodeURIComponent(form.address.value.trim());
-    const phone = encodeURIComponent(form.phone.value.trim());
-    const email = encodeURIComponent(form.email.value.trim());
-    if (!address || !email) return false;
+        <div class="input-row">
+          <div class="field-group">
+            <label>Phone</label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone (optional)"
+              aria-label="Phone Number" />
+          </div>
+          <div class="field-group">
+            <label>
+              Email
+              <span class="required-asterisk">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              aria-label="Email Address" />
+          </div>
+        </div>
 
-    const query = `?address=${address}&phone=${phone}&email=${email}`;
-    window.location.href = "/full-form" + query;
-    return false;
-  }
-</script>
+        <button type="submit">Claim My Value Now!</button>
+      </form>
+    </div>
+
+    <script>
+      function redirectToFullForm(event) {
+        event.preventDefault();
+        const form = event.target;
+        const address = encodeURIComponent(form.address.value.trim());
+        const phone = encodeURIComponent(form.phone.value.trim());
+        const email = encodeURIComponent(form.email.value.trim());
+        if (!address || !email) return false;
+
+        const query = `?address=${address}&phone=${phone}&email=${email}`;
+        window.location.href = "/full-form" + query;
+        return false;
+      }
+    </script>
+  </body>
+</html>
