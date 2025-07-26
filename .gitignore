@@ -1,3 +1,4 @@
 /frontend/public/
 /frontend/.hugo_build.lock
 /examples
+*.lock

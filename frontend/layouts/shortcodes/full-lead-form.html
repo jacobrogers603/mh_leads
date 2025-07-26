@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Central Florida Property Details Form</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        margin: 0;
+        padding: 40px;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #555;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: #f28c38;
+        outline: none;
+      }
+      .form-group.inline {
+        display: flex;
+        justify-content: space-between;
+      }
+      .form-group.inline input {
+        width: 48%;
+      }
+      .section-title {
+        font-size: 1.4em;
+        font-weight: 700;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        background-color: #e9ecef;
+        border-radius: 6px;
+        color: #444;
+      }
+      .intro-text {
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: #666;
+      }
+      button {
+        background-color: #f28c38;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #d9752a;
+      }
+      .name-group {
+        margin-bottom: 30px; /* Added extra spacing */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-group inline name-group">
+        <label for="firstName">Your Full Name *</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="First Name" />
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Last Name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@domain.com" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Enter your phone" />
+      </div>
+      <div class="section-title">
+        Details About Your Central Florida Property
+      </div>
+      <p class="intro-text">
+        Great! To help you explore options for selling your home in Central
+        Florida, we require some additional details. This will allow us to offer
+        you a prompt cash proposal.
+      </p>
+      <p class="intro-text">
+        Kindly fill out the fields below regarding your property. Feel free to
+        skip any sections if the information isn't readily available right now.
+      </p>
+      <div class="form-group">
+        <label for="garage">Garage Type</label>
+        <select id="garage" name="garage">
+          <option value="2 Car Attached">2-Car Attached</option>
+          <option value="None">No Garage</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="basement">Basement Type</label>
+        <select id="basement" name="basement">
+          <option value="None">None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ownershipDuration">Duration of Property Ownership?</label>
+        <input
+          type="text"
+          id="ownershipDuration"
+          name="ownershipDuration"
+          placeholder="e.g., 5 years" />
+      </div>
+      <div class="form-group">
+        <label for="condition">Current State of the Property? *</label>
+        <select id="condition" name="condition">
+          <option value="Excellent">Excellent</option>
+          <option value="Good">Good</option>
+          <option value="Fair">Fair</option>
+          <option value="Poor">Poor</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="repairs">Required Repairs or Upkeep for the Home?</label>
+        <textarea
+          id="repairs"
+          name="repairs"
+          placeholder="Describe any needed work..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="occupancy">Is the Home Occupied? *</label>
+        <select id="occupancy" name="occupancy">
+          <option value="Yes - Owner Occupied">Yes, by Owner</option>
+          <option value="Yes - Tenant Occupied">Yes, by Tenant</option>
+          <option value="No">Vacant</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="realtor">Is the Property Listed with an Agent? *</label>
+        <select id="realtor" name="realtor">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="section-title">Your Current Circumstances</div>
+      <div class="form-group">
+        <label for="sellFast">
+          Need a Quick Sale for Your Central Florida Home?
+        </label>
+        <select id="sellFast" name="sellFast">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="goal">
+          Primary Objective with Selling Your Property? *
+        </label>
+        <textarea
+          id="goal"
+          name="goal"
+          placeholder="Share your goals..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="bestTime">Preferred Contact Time</label>
+        <select id="bestTime" name="bestTime">
+          <option value="Anytime">Any Time</option>
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
+        </select>
+      </div>
+      <div class="section-title">Discussing Your Asking Price</div>
+      <div class="form-group">
+        <label for="price">
+          Desired Sale Price for Your Central Florida Home?
+        </label>
+        <input
+          type="text"
+          id="price"
+          name="price"
+          placeholder="Enter amount..." />
+      </div>
+      <button type="submit">Send Your Details Now</button>
+    </div>
+  </body>
+</html>
