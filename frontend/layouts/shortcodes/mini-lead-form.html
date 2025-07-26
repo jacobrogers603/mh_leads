@@ -42,7 +42,7 @@
       .form-container label {
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
-        font-weight: bold; /* Make labels bold */
+        font-weight: bold;
       }
       .form-container input {
         width: 100%;
@@ -54,16 +54,16 @@
         color: #333;
       }
       .form-container .field-group {
-        margin-bottom: 1.2rem; /* Consistent spacing for all field groups */
+        margin-bottom: 1.2rem;
       }
       .form-container .input-row {
         display: flex;
         gap: 1.2rem;
-        margin-bottom: 1.2rem; /* Consistent with other fields */
+        margin-bottom: 1.2rem;
       }
       .form-container .input-row .field-group {
         flex: 1;
-        margin-bottom: 0; /* No extra bottom margin in row */
+        margin-bottom: 0;
       }
       .form-container button {
         background: #ff4500;
@@ -122,8 +122,8 @@
             <input
               type="email"
               name="email"
-              placeholder="Your Email"
               required
+              placeholder="Your Email"
               aria-label="Email Address" />
           </div>
         </div>
@@ -136,15 +136,65 @@
       function redirectToFullForm(event) {
         event.preventDefault();
         const form = event.target;
-        const address = encodeURIComponent(form.address.value.trim());
-        const phone = encodeURIComponent(form.phone.value.trim());
-        const email = encodeURIComponent(form.email.value.trim());
-        if (!address || !email) return false;
+        const addressInput = form.address;
+        const phoneInput = form.phone;
+        const emailInput = form.email;
+        const address = addressInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const email = emailInput.value.trim();
 
-        const query = `?address=${address}&phone=${phone}&email=${email}`;
+        // Clear previous custom validities
+        addressInput.setCustomValidity("");
+        emailInput.setCustomValidity("");
+        phoneInput.setCustomValidity("");
+
+        let isValid = true;
+
+        // Validate email (required with format check only on submit)
+        if (!email) {
+          emailInput.setCustomValidity("Please enter your Email.");
+          isValid = false;
+        } else {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            emailInput.setCustomValidity("Please enter a valid email address.");
+            isValid = false;
+          }
+        }
+
+        // Validate phone (optional, but must be valid if entered, only on submit)
+        if (phone) {
+          const phoneRegex = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
+          if (!phoneRegex.test(phone)) {
+            phoneInput.setCustomValidity(
+              "Please enter a valid US phone number (e.g., 123-456-7890)."
+            );
+            isValid = false;
+          }
+        }
+
+        if (!isValid) {
+          form.reportValidity();
+          return false;
+        }
+
+        // Proceed if valid
+        const query = `?address=${encodeURIComponent(
+          address
+        )}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(
+          email
+        )}`;
         window.location.href = "/full-form" + query;
         return false;
       }
+
+      // Prevent real-time validation messages
+      const inputs = document.querySelectorAll("input");
+      inputs.forEach((input) => {
+        input.addEventListener("input", function () {
+          this.setCustomValidity(""); // Clear any custom validity as they type
+        });
+      });
     </script>
   </body>
 </html>
