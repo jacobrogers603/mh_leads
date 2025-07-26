@@ -1,0 +1,67 @@
+<div
+  style="
+    background: #004b87;
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: #fff;
+    max-width: 400px;
+  ">
+  <h3 style="margin-top: 0">Get Your Fair Cash Offer: Start Below!</h3>
+  <hr style="border: 1px solid #ccc; margin: 1rem 0" />
+  <form id="mini-lead-form" onsubmit="return redirectToFullForm(event)">
+    <label>
+      Property Address*
+      <br />
+      <input
+        type="text"
+        name="address"
+        required
+        style="width: 100%; margin-bottom: 1rem; padding: 0.5rem" />
+    </label>
+    <br />
+
+    <div style="display: flex; gap: 1rem; margin-bottom: 1rem">
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone"
+        style="flex: 1; padding: 0.5rem" />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email*"
+        required
+        style="flex: 1; padding: 0.5rem" />
+    </div>
+
+    <button
+      type="submit"
+      style="
+        background: #ff9900;
+        color: white;
+        font-weight: bold;
+        padding: 0.75rem 1rem;
+        border: none;
+        width: 100%;
+        border-radius: 4px;
+        font-size: 1rem;
+      ">
+      Get My Cash Offer!
+    </button>
+  </form>
+</div>
+
+<script>
+  function redirectToFullForm(event) {
+    event.preventDefault();
+    const form = event.target;
+    const address = encodeURIComponent(form.address.value.trim());
+    const phone = encodeURIComponent(form.phone.value.trim());
+    const email = encodeURIComponent(form.email.value.trim());
+    if (!address || !email) return false;
+
+    const query = `?address=${address}&phone=${phone}&email=${email}`;
+    window.location.href = "/full-form" + query;
+    return false;
+  }
+</script>
