@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell Your Mobile Home in Central Florida</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .form-container {
+        background: #0077be;
+        padding: 2rem;
+        border-radius: 8px;
+        color: #ffffff;
+        max-width: 350px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .form-container h3 {
+        margin-top: 0;
+        font-size: 1.7rem;
+        text-align: center;
+        color: #ffd700;
+        font-weight: bold;
+        word-break: break-word;
+      }
+      .form-container hr {
+        border: 1px solid #ffffff;
+        margin: 1.5rem 0;
+        opacity: 0.5;
+      }
+      .form-container form {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-container label {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      .form-container input {
+        width: 100%;
+        padding: 0.85rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        background: #f9f9f9;
+        color: #333;
+      }
+      .form-container .field-group {
+        margin-bottom: 1.2rem;
+      }
+      .form-container .input-row {
+        display: flex;
+        gap: 1.2rem;
+        margin-bottom: 1.2rem;
+      }
+      .form-container .input-row .field-group {
+        flex: 1;
+        margin-bottom: 0;
+      }
+      .form-container button {
+        background: #ff4500;
+        color: white;
+        font-weight: bold;
+        padding: 1.1rem;
+        border: none;
+        width: 100%;
+        border-radius: 4px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .form-container button:hover {
+        background: #cc3700;
+      }
+      .required-asterisk {
+        color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h3>
+        Get Your Fair Value for Your Central Florida Mobile Home: Start Here!
+      </h3>
+      <hr />
+      <form id="mini-lead-form" onsubmit="return redirectToFullForm(event)">
+        <div class="field-group">
+          <label>
+            Your Central Florida Property Address
+            <span class="required-asterisk">*</span>
+          </label>
+          <input
+            type="text"
+            name="address"
+            required
+            placeholder="Enter your Central Florida address"
+            aria-label="Central Florida Property Address" />
+        </div>
+
+        <div class="input-row">
+          <div class="field-group">
+            <label>Phone</label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone (optional)"
+              aria-label="Phone Number" />
+          </div>
+          <div class="field-group">
+            <label>
+              Email
+              <span class="required-asterisk">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Your Email"
+              aria-label="Email Address" />
+          </div>
+        </div>
+
+        <button type="submit">Claim My Value Now!</button>
+      </form>
+    </div>
+
+    <script>
+      function redirectToFullForm(event) {
+        event.preventDefault();
+        const form = event.target;
+        const addressInput = form.address;
+        const phoneInput = form.phone;
+        const emailInput = form.email;
+        const address = addressInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const email = emailInput.value.trim();
+
+        // Clear previous custom validities
+        addressInput.setCustomValidity("");
+        emailInput.setCustomValidity("");
+        phoneInput.setCustomValidity("");
+
+        let isValid = true;
+
+        // Validate email (required with format check only on submit)
+        if (!email) {
+          emailInput.setCustomValidity("Please enter your Email.");
+          isValid = false;
+        } else {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            emailInput.setCustomValidity("Please enter a valid email address.");
+            isValid = false;
+          }
+        }
+
+        // Validate phone (optional, but must be valid if entered, only on submit)
+        if (phone) {
+          const phoneRegex = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
+          if (!phoneRegex.test(phone)) {
+            phoneInput.setCustomValidity(
+              "Please enter a valid US phone number (e.g., 123-456-7890)."
+            );
+            isValid = false;
+          }
+        }
+
+        if (!isValid) {
+          form.reportValidity();
+          return false;
+        }
+
+        // Proceed if valid
+        const query = `?address=${encodeURIComponent(
+          address
+        )}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(
+          email
+        )}`;
+        window.location.href = "/full-form" + query;
+        return false;
+      }
+
+      // Prevent real-time validation messages
+      const inputs = document.querySelectorAll("input");
+      inputs.forEach((input) => {
+        input.addEventListener("input", function () {
+          this.setCustomValidity(""); // Clear any custom validity as they type
+        });
+      });
+    </script>
+  </body>
+</html>
